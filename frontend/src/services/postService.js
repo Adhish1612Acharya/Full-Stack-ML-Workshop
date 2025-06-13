@@ -21,16 +21,16 @@ const postService = {
     }
   },
 
-  // searchPosts: async (prompt) => {
-  //   try {
-  //     const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts/search`, {
-  //       params: { prompt },
-  //     });
-  //     return response.data;
-  //   } catch (error) {
-  //     throw error.response?.data || error.message;
-  //   }
-  // },
+  searchPosts: async (prompt) => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts/search`, {
+        params: { prompt },
+      });
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
 };
 
 export default postService;

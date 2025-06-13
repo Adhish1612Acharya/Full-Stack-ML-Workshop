@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import PostCard from "../components/PostCard";
 import PostCardSkeleton from "../components/PostCardSkeleton";
-// import postService from "../services/postService";
+import postService from "../services/postService";
 
 const AiSearch = () => {
   const [query, setQuery] = useState("");
@@ -29,8 +29,8 @@ const AiSearch = () => {
     setError(null);
     setResults([]);
     try {
-      // const response = await postService.searchPosts(query);
-      // setResults(response.data);
+      const response = await postService.searchPosts(query);
+      setResults(response.data);
     } catch (err) {
       setError(err.message || "Something went wrong while searching posts");
     } finally {
