@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api";
+
 
 const postService = {
   getAllPosts: async () => {
     try {
-      const response = await axios.get(`${API_URL}/posts`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
       return response.data;
     } catch (error) {
       throw error.response?.data || error.message;
@@ -14,7 +14,7 @@ const postService = {
 
   createMultiplePosts: async (posts) => {
     try {
-      const response = await axios.post(`${API_URL}/posts/multiple`, posts);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/posts/multiple`, posts);
       return response.data;
     } catch (error) {
       throw error.response?.data || error.message;
@@ -23,7 +23,7 @@ const postService = {
 
   searchPosts: async (prompt) => {
     try {
-      const response = await axios.get(`${API_URL}/posts/search`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts/search`, {
         params: { prompt },
       });
       return response.data;
